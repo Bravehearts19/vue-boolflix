@@ -3,36 +3,24 @@
       <input type="text" placeholder="Scrivi qui il film o la serie tv che sei interessato a vedere" v-model="searchedText" class="w-50 d-inline-block" @keydown.enter="onSearchButtonClick()">
       <button type="button" class="btn btn-primary ms-3" @click="onSearchButtonClick()">Cerca</button>
       <ul>
-        <li v-for="(movie) in moviesList" :key="movie.id" class="my-3">
-          {{ movie.title }}
-
-          <br>
-
-          {{ movie.original_title }}
-
-          <br>
-
-          {{ movie.original_language }}
-          <img v-if="!(languagesFlagsUrlList.hasOwnProperty(movie.original_language))" :src="languagesFlagsUrlList.others" alt="">
-          <img v-else :src="languagesFlagsUrlList[movie.original_language]" alt="">
-
-          <br>
-
-          {{ movie.vote_average }}
-
-        </li>
+        <Card :movieOrSeries="movie" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(movie) in moviesList" :key="movie.id"/>
+      </ul>
+      
+      <ul>
+        <Card :movieOrSeries="series" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(series) in seriesList" :key="series.id"/>
       </ul>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Card from './components/Card.vue';
 
 
 export default {
   name: 'App',
   components: {
-
+    Card,
   },
   data() {
     return {
