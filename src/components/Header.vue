@@ -1,13 +1,11 @@
 <template>
-    <div class="container-fluid">
-        <div class="d-flex align-items-center">
-            <h3 class="text-danger">BOOLFLIX</h3>
-            <div class="ms-auto">
-                <input type="text" placeholder="Scrivi qui il film o la serie tv che sei interessato a vedere" v-model="searchedText" class="w-50 d-inline-block" @keydown.enter="onSearchButtonClick()">
-                <button type="button" class="btn btn-primary ms-3" @click="onSearchButtonClick()">Cerca</button>
-            </div>
+    <header class="container-fluid d-flex align-items-center py-3 m-0">
+        <h3 class="text-danger">BOOLFLIX</h3>
+        <div class="ms-auto d-flex align-items-center">
+            <input type="text" placeholder="Cerca qui film o serie tv" v-model="searchedText" class="d-inline-block" @keydown.enter="onSearchButtonClick()">
+            <button type="button" class="btn btn-danger ms-3" @click="onSearchButtonClick()">Cerca</button>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>

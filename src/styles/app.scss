@@ -1,3 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
 @import "variables.scss";
-@import "~font-awesome/css/font-awesome.css"
+@import "~font-awesome/css/font-awesome.css";
+@import "@/styles/header.scss";
+@import "card.scss";
+
+body {
+    background-color: grey;
+}
+#app {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    .container-fluid-main {
+        background-color: grey;
+        .container {
+            .row {
+                column-gap: $column_gap;
+                row-gap: $row_gap;
+            }
+        }
+    }
+}

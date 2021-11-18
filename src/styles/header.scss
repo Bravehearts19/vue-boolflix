@@ -1,0 +1,14 @@
+@import "~font-awesome/css/font-awesome.css";
+@import "@/styles/variables.scss";
+
+header {
+    background-color: black;
+    h3 {
+        margin: 0;
+    }
+    div {
+        input {
+            width: $input_width;
+        }
+    }
+}

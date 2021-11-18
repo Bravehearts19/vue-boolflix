@@ -1,14 +1,17 @@
 <template>
     <div id="app">
-      <Header :apiKey="apiKey" :apiUrl="apiUrl" @onSearchSeries="onSearchSeries" @onSearchMovies="onSearchMovies" />
-      
-      <ul>
-        <Card :movieOrSeries="movie" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(movie) in moviesList" :key="movie.id"/>
-      </ul>
-      
-      <ul>
-        <Card :movieOrSeries="series" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(series) in seriesList" :key="series.id"/>
-      </ul>
+      <Header :apiKey="apiKey" :apiUrl="apiUrl" @onSearchSeries="onSearchSeries" @onSearchMovies="onSearchMovies" />  
+      <div class="container-fluid-main">
+        <div class="container">
+          <div class="row row-cols-3 my-3">
+            <Card :movieOrSeries="movie" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(movie) in moviesList" :key="movie.id"/>
+          </div>
+        
+          <div class="row row-cols-3 my-3">
+            <Card :movieOrSeries="series" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(series) in seriesList" :key="series.id"/>
+          </div>
+      </div>
+      </div>
     </div>
 </template>
 
@@ -55,13 +58,4 @@ export default {
 
 <style lang="scss">
 @import "./styles/app.scss";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

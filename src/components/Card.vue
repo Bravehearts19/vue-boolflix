@@ -1,31 +1,43 @@
 <template>
-    <li class="my-3">  <!-- v-for="(movie) in moviesList" :key="movie.id"  -->
-        {{ cardInformation.title }}
+    <div class="card_container">  <!-- v-for="(movie) in moviesList" :key="movie.id"  -->
+        <span>
+            <strong>Titolo:</strong> {{ cardInformation.title }}
+        </span>
 
         <br>
 
-        {{ cardInformation.original_title }}
+        <span>
+            <strong>Titolo originale:</strong> {{ cardInformation.original_title }}
+        </span>
 
         <br>
 
-        {{ cardInformation.original_language }}
-        <img :src="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language)) ? languagesFlagsUrlList.others : languagesFlagsUrlList[cardInformation.original_language]" alt="">
+        <span class="span_with_stars">
+            <strong>Voto:</strong> {{ cardInformation.vote_average }}
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        </span>
 
         <br>
 
-        {{ cardInformation.vote_average }}
-
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <span class="span_with_image">
+            <strong>Lingua:</strong> <img :src="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language)) ? languagesFlagsUrlList.others : languagesFlagsUrlList[cardInformation.original_language]" alt=""> ({{ cardInformation.original_language }})
+        </span>
 
         <br>
 
-        <img :src="cardInformation.imagePath" alt="">
+        <span class="span_with_image">
+            <strong>Trama:</strong> {{ cardInformation.overview }}
+        </span>
 
-    </li>
+        <br>
+
+        <!-- <img :src="cardInformation.imagePath" alt=""> -->
+
+    </div>
 </template>
 
 <script>
@@ -62,6 +74,8 @@ export default {
             cardInformation.vote_average = this.fiveStarVote();
 
             cardInformation.imagePath = this.cardInformationImagePath();
+
+            cardInformation.overview = this.movieOrSeries.overview;
 
             return cardInformation
         }
