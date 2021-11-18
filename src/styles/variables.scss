@@ -1,5 +1,5 @@
 $input_width: 360px;
-$cards_per_row: 4;
+$cards_per_row: 3;
 $column_gap: calc(180px / ($cards_per_row - 1));
 $row_gap: $column_gap;
 $card_width: calc((100% - $row_gap * ($cards_per_row - 1)) / $cards_per_row);
