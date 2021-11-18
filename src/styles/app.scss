@@ -14,9 +14,16 @@ body {
     .container-fluid-main {
         background-color: grey;
         .container {
+            h2 {
+                margin-top: $row_gap;
+                margin-bottom: $row_gap;
+            }
             .row {
                 column-gap: $column_gap;
                 row-gap: $row_gap;
+                &.movies_row {
+                    margin-bottom: calc($column_gap * 1.2);
+                }
             }
         }
     }

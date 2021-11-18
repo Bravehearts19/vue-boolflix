@@ -1,42 +1,30 @@
 <template>
-    <div class="card_container">  <!-- v-for="(movie) in moviesList" :key="movie.id"  -->
-        <span>
-            <strong>Titolo:</strong> {{ cardInformation.title }}
-        </span>
+    <div class="card_container" @mouseover="showInformation = true" @mouseleave="showInformation = false">  
 
-        <br>
+        <img v-if="!showInformation" :src="movieOrSeries.poster_path == null ? 'https://www.inixgroup.com/wp-content/uploads/2020/12/placeholder.png' : cardInformation.imagePath" alt="">
+        
+        <div class="spans_container" v-else>
+            <span>
+                <strong>Titolo:</strong> {{ cardInformation.title }}
+            </span>
 
-        <span>
-            <strong>Titolo originale:</strong> {{ cardInformation.original_title }}
-        </span>
+            <span v-if="cardInformation.title !== cardInformation.original_title">
+                <strong>Titolo originale:</strong> {{ cardInformation.original_title }}
+            </span>
 
-        <br>
+            <span class="span_with_stars">
+                <strong class="me-2">Voto:</strong> 
+                <i class="fa fa-star" aria-hidden="true" v-for="num in cardInformation.vote_average" :key="num"></i>
+            </span>
 
-        <span class="span_with_stars">
-            <strong>Voto:</strong> {{ cardInformation.vote_average }}
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-        </span>
+            <span class="span_with_image">
+                <strong class="me-2">Lingua:</strong> <img :src="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language)) ? languagesFlagsUrlList.others : languagesFlagsUrlList[cardInformation.original_language]" alt=""> ({{cardInformation.original_language}})
+            </span>
 
-        <br>
-
-        <span class="span_with_image">
-            <strong>Lingua:</strong> <img :src="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language)) ? languagesFlagsUrlList.others : languagesFlagsUrlList[cardInformation.original_language]" alt=""> ({{ cardInformation.original_language }})
-        </span>
-
-        <br>
-
-        <span class="span_with_image">
-            <strong>Trama:</strong> {{ cardInformation.overview }}
-        </span>
-
-        <br>
-
-        <!-- <img :src="cardInformation.imagePath" alt=""> -->
-
+            <span class="span_with_image" v-if="cardInformation.overview !== ''">
+                <strong>Trama:</strong> {{ cardInformation.overview }}
+            </span>
+        </div>
     </div>
 </template>
 
@@ -51,6 +39,7 @@ export default {
         return {
             startImgUrl: "https://image.tmdb.org/t/p/",
             imgUrlWidth: "w342",
+            showInformation: false,
         }
     },
     computed: {

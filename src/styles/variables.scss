@@ -1,4 +1,10 @@
 $input_width: 360px;
-$column_gap: 60px;
+$cards_per_row: 4;
+$column_gap: calc(180px / ($cards_per_row - 1));
 $row_gap: $column_gap;
-$cards_per_row: 3;
+$card_width: calc((100% - $row_gap * ($cards_per_row - 1)) / $cards_per_row);
+$card_height: calc($card_width * 550 / 380);
+$span_padding: 3px;
+$spans_container_padding_y: 18px;
+$spans_container_padding_x: 24px;
+$card_border_radius: 10px;

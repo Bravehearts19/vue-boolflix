@@ -2,12 +2,14 @@
     <div id="app">
       <Header :apiKey="apiKey" :apiUrl="apiUrl" @onSearchSeries="onSearchSeries" @onSearchMovies="onSearchMovies" />  
       <div class="container-fluid-main">
-        <div class="container">
-          <div class="row row-cols-3 my-3">
+        <div class="container my-4">
+          <h2 class="text-center">Film</h2>
+          <div class="row row-cols-3 movies_row">
             <Card :movieOrSeries="movie" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(movie) in moviesList" :key="movie.id"/>
           </div>
         
-          <div class="row row-cols-3 my-3">
+          <h2 class="text-center">Serie Tv</h2>
+          <div class="row row-cols-3 series_row">
             <Card :movieOrSeries="series" :languagesFlagsUrlList="languagesFlagsUrlList" v-for="(series) in seriesList" :key="series.id"/>
           </div>
       </div>

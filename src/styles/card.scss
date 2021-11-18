@@ -2,19 +2,42 @@
 
 .card_container {
     background-color: rgba($color: #000000, $alpha: 0.8);
-    border-radius: 10px;
+    border-radius: $card_border_radius;
     margin: 0;
-    width: calc((100% - $row_gap * ($cards_per_row - 1)) / $cards_per_row);
-    padding: 18px 24px;
+    width: $card_width;
+    padding: 0;
     color: white;
-    .span_with_stars {
-        i {
-            color: rgb(220, 220, 21);
+    height: $card_height;
+    font-size: 13px;
+    overflow: auto;
+    object-fit: contain;
+    cursor: pointer;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: $card_border_radius;
+        aspect-ratio: $card_width / $card_height;
+    }
+    .spans_container {
+        padding: $spans_container_padding_y $spans_container_padding_x;
+        span {
+            display: block;
+            padding-top: $span_padding;
+            padding-bottom: $span_padding;
+            &.span_with_stars {
+                i {
+                    color: rgb(220, 220, 21);
+                }
+            }
+            &.span_with_image {
+                img{
+                    height: 24px;
+                    width: auto;
+                    border-radius: none;
+                    aspect-ratio: auto;
+                }
+            }
         }
     }
-    .span_with_image {
-        img{
-            height: 24px;
-        }
-    }
+    
 }
