@@ -9,8 +9,7 @@
         <br>
 
         {{ cardInformation.original_language }}
-        <img v-if="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language))" :src="languagesFlagsUrlList.others" alt="">
-        <img v-else :src="languagesFlagsUrlList[cardInformation.original_language]" alt="">
+        <img :src="!(languagesFlagsUrlList.hasOwnProperty(cardInformation.original_language)) ? languagesFlagsUrlList.others : languagesFlagsUrlList[cardInformation.original_language]" alt="">
 
         <br>
 
