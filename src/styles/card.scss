@@ -7,8 +7,9 @@
     width: $card_width;
     padding: 0;
     color: white;
-    height: $card_height;
-    height: 550px;
+    /* height: $card_height;
+    height: 550px; */
+    aspect-ratio: 380 / 550;
     font-size: 13px;
     overflow: auto;
     object-fit: contain;
