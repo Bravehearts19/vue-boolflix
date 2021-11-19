@@ -15,6 +15,7 @@
             <span class="span_with_stars">
                 <strong class="me-2">Voto:</strong> 
                 <i class="fa fa-star" aria-hidden="true" v-for="num in cardInformation.vote_average" :key="num"></i>
+                <i class="fa fa-star-o" aria-hidden="true" v-for="n in 5 - cardInformation.vote_average" :key="n"></i>
             </span>
 
             <span class="span_with_image">
